@@ -17,6 +17,7 @@ from keras.layers import Input
 from keras.layers import LSTM
 from keras.layers import Lambda
 from keras.models import Model
+from keras import Sequential
 
 # See https://github.com/OxCGRT/covid-policy-tracker
 DATA_URL = "https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv"
@@ -502,7 +503,7 @@ class XPrizePredictor(object):
         return X_context, X_action, y
 
     # Construct model
-    def _construct_model(self, nb_context, nb_action, nb_lookback_days=60):
+    def _construct_model(self, nb_context, nb_action, nb_lookback_days=10):
 
         # Create context encoder
         context_input = Input(shape=(nb_lookback_days, nb_context),
@@ -534,8 +535,8 @@ class XPrizePredictor(object):
         ##########################
         NN_model = Sequential()
 
-# The Input Layer :
-        NN_model.add(Dense(512, kernel_initializer='normal',input_dim = give input shape here ([1091, batch size]), activation='relu'))
+# The Input Layer:
+        NN_model.add(Dense(512, kernel_initializer='normal',input_dim =  ([1,10,1264]), activation='relu'))
 
         # The Hidden Layers :
         NN_model.add(Dense(1024, kernel_initializer='normal',activation='relu'))    ### This is using a bottlenet architecture of 5 hidden layerss
