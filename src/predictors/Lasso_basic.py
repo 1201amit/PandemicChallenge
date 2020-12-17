@@ -17,7 +17,7 @@ from keras.layers import Input
 from keras.layers import LSTM
 from keras.layers import Lambda
 from keras.models import Model
-from keras import Sequential
+from keras.models import Sequential
 
 # See https://github.com/OxCGRT/covid-policy-tracker
 DATA_URL = "https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv"
